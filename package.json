@@ -14,8 +14,14 @@
     "mdx",
     "react"
   ],
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  },
   "devDependencies": {
     "coveralls": "3.0.5",
-    "jest": "24.8.0"
+    "jest": "24.8.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
   }
 }
