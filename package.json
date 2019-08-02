@@ -13,5 +13,8 @@
     "md",
     "mdx",
     "react"
-  ]
+  ],
+  "devDependencies": {
+    "coveralls": "^3.0.5"
+  }
 }
