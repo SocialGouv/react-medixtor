@@ -5,6 +5,10 @@
   "description": "MDX-based Editor and Previewer for React.",
   "main": "index.js",
   "scripts": {
+    "build": "rollup -c",
+    "build:watch": "yarn build --watch",
+    "dev": "concurrently \"yarn build:watch\" \"yarn serve\"",
+    "serve": "http-server ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,9 +23,23 @@
     "react-dom": ">=16.0.0"
   },
   "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "@babel/preset-react": "7.0.0",
+    "@socialgouv/eslint-config-react": "0.9.3",
+    "concurrently": "4.1.1",
     "coveralls": "3.0.5",
+    "eslint": "6.1.0",
+    "http-server": "0.11.1",
     "jest": "24.8.0",
+    "prettier": "1.18.2",
     "react": "16.8.6",
-    "react-dom": "16.8.6"
+    "react-dom": "16.8.6",
+    "rollup": "1.18.0",
+    "rollup-plugin-babel": "4.3.3",
+    "rollup-plugin-commonjs": "10.0.1",
+    "rollup-plugin-local-resolve": "1.0.7",
+    "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-peer-deps-external": "2.2.0"
   }
 }

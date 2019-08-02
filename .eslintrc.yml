@@ -1,0 +1,15 @@
+extends:
+  - "@socialgouv/eslint-config-react"
+
+rules:
+  # max-len: ["error", { "code": 80 }]
+  no-console: ["error", { allow: ["info", "error", "warn"] }]
+
+overrides:
+  - files:
+      - "__mocks__/*"
+      - "jest.setup.js"
+      - "*.test.js"
+
+    env:
+      jest: true
