@@ -1,0 +1,17 @@
+{
+  "name": "@socialgouv/meditor",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "description": "MDX-based Editor and Previewer for React.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "editor",
+    "markdown",
+    "md",
+    "mdx",
+    "react"
+  ]
+}
