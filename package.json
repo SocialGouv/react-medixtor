@@ -15,6 +15,7 @@
     "react"
   ],
   "devDependencies": {
-    "coveralls": "3.0.5"
+    "coveralls": "3.0.5",
+    "jest": "24.8.0"
   }
 }
