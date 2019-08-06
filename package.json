@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "Apache-2.0",
   "description": "MDX-based Editor and Previewer for React.",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "rollup -c",
     "build:watch": "yarn build --watch",
