@@ -9,7 +9,9 @@
     "build:watch": "yarn build --watch",
     "dev": "concurrently \"yarn build:watch\" \"yarn serve\"",
     "serve": "http-server ./",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preversion": "yarn build && git add -f ./dist/index.js",
+    "postversion": "git push origin HEAD && git push --tags"
   },
   "keywords": [
     "editor",
@@ -26,6 +28,9 @@
     "@babel/core": "7.5.5",
     "@babel/preset-env": "7.5.5",
     "@babel/preset-react": "7.0.0",
+    "@mdx-js/mdx": "^1.1.6",
+    "@mdx-js/react": "^1.1.6",
+    "@mdx-js/tag": "0.20.3",
     "@socialgouv/eslint-config-react": "0.9.3",
     "concurrently": "4.1.1",
     "coveralls": "3.0.5",
@@ -33,16 +38,23 @@
     "http-server": "0.11.1",
     "jest": "24.8.0",
     "prettier": "1.18.2",
-    "prism-react-renderer": "0.1.7",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-live": "2.1.2",
+    "remark": "11.0.1",
+    "remark-mdx": "1.1.6",
+    "remark-parse": "7.0.1",
+    "remark-react": "6.0.0",
     "rollup": "1.18.0",
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-commonjs": "10.0.1",
-    "rollup-plugin-local-resolve": "1.0.7",
+    "rollup-plugin-filesize": "6.1.1",
+    "rollup-plugin-json": "4.0.0",
+    "rollup-plugin-node-builtins": "2.1.2",
+    "rollup-plugin-node-globals": "1.4.0",
     "rollup-plugin-node-resolve": "5.2.0",
-    "rollup-plugin-peer-deps-external": "2.2.0"
+    "rollup-plugin-peer-deps-external": "2.2.0",
+    "showdown": "1.9.0",
+    "unified": "8.3.2"
   },
   "resolutions": {
     "ecstatic": "3.0.0"
