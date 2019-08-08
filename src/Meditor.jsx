@@ -96,18 +96,19 @@ class Meditor extends React.Component {
   render() {
     const { defaultValue } = this;
     const {
+      className = "",
       disabled = false,
-      editorStyle,
+      editorStyle = {},
       noEditor = false,
       noPreview = false,
       noSpellCheck = false,
-      previewStyle,
-      style
+      previewStyle = {},
+      style = {}
     } = this.props;
     const { jsx } = this.state;
 
     return (
-      <div style={{ ...STYLES.CONTAINER, ...style }}>
+      <div className={className} style={{ ...STYLES.CONTAINER, ...style }}>
         {!noEditor && (
           <textarea
             defaultValue={defaultValue}
@@ -127,6 +128,7 @@ class Meditor extends React.Component {
 }
 
 Meditor.propTypes = {
+  className: PropTypes.string,
   defaultValue: PropTypes.string,
   disabled: PropTypes.bool,
   editorStyle: PropTypes.object,
