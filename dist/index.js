@@ -26479,19 +26479,25 @@
 
         var defaultValue = this.defaultValue;
         var _this$props = this.props,
+            _this$props$className = _this$props.className,
+            className = _this$props$className === void 0 ? "" : _this$props$className,
             _this$props$disabled = _this$props.disabled,
             disabled = _this$props$disabled === void 0 ? false : _this$props$disabled,
-            editorStyle = _this$props.editorStyle,
+            _this$props$editorSty = _this$props.editorStyle,
+            editorStyle = _this$props$editorSty === void 0 ? {} : _this$props$editorSty,
             _this$props$noEditor = _this$props.noEditor,
             noEditor = _this$props$noEditor === void 0 ? false : _this$props$noEditor,
             _this$props$noPreview = _this$props.noPreview,
             noPreview = _this$props$noPreview === void 0 ? false : _this$props$noPreview,
             _this$props$noSpellCh = _this$props.noSpellCheck,
             noSpellCheck = _this$props$noSpellCh === void 0 ? false : _this$props$noSpellCh,
-            previewStyle = _this$props.previewStyle,
-            style = _this$props.style;
+            _this$props$previewSt = _this$props.previewStyle,
+            previewStyle = _this$props$previewSt === void 0 ? {} : _this$props$previewSt,
+            _this$props$style = _this$props.style,
+            style = _this$props$style === void 0 ? {} : _this$props$style;
         var jsx = this.state.jsx;
         return React.createElement("div", {
+          className: className,
           style: _objectSpread2({}, STYLES.CONTAINER, {}, style)
         }, !noEditor && React.createElement("textarea", {
           defaultValue: defaultValue,
@@ -26512,6 +26518,7 @@
   }(React.Component);
 
   Meditor.propTypes = {
+    className: propTypes.string,
     defaultValue: propTypes.string,
     disabled: propTypes.bool,
     editorStyle: propTypes.object,
