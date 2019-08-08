@@ -1,12 +1,35 @@
 <html>
+  <head>
+    <style>
+      html,
+      body,
+      #root {
+        height: 100vh;
+        margin: 0;
+      }
+    </style>
+  </head>
   <body>
     <div id="root"></div>
 
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
     <script src="/dist/index.js"></script>
     <script>
-      ReactDOM.render(React.createElement(Meditor, {}), document.querySelector("#root"));
+      ReactDOM.render(
+        React.createElement(Meditor, {
+          defaultValue: "## hi",
+          headersOffset: 2,
+          onChange: console.log
+        }),
+        document.querySelector("#root")
+      );
     </script>
   </body>
 </html>
