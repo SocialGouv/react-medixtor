@@ -25,12 +25,12 @@
 ## Get Started
 
 ```bash
-npm i https://github.com/SocialGouv/Meditor
+npm i https://github.com/SocialGouv/meditor
 ```
 
 ```js
 import React from "react";
-import Meditor from "@SocialGouv/Meditor";
+import Meditor from "@SocialGouv/meditor";
 
 export default class MyApp extends React.Component {
   onEdit(output) {
@@ -52,6 +52,7 @@ export default class MyApp extends React.Component {
 
 ```js
 {
+  className: String, // CSS classes. Default: "".
   defaultValue: String, // Initial Markdown source. Default: "".
   disabled: Boolean, // Disable editor. Default: false.
   editorStyle: Object, // Overwrite editor style.
