@@ -26385,10 +26385,8 @@
       width: "100%"
     },
     EDITOR: {
-      backgroundColor: "white",
       border: 0,
       borderRight: "solid 1px lightgray",
-      color: "darkgray",
       flexGrow: 1,
       fontFamily: "monospace",
       maxWidth: "50%",
