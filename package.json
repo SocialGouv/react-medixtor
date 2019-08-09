@@ -9,7 +9,8 @@
     "build:watch": "yarn build --watch",
     "dev": "concurrently \"yarn build:watch\" \"yarn serve\"",
     "serve": "http-server ./",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "yarn test:lint",
+    "test:lint": "eslint ./src/**",
     "preversion": "yarn build && git add -f ./dist/index.js",
     "postversion": "git push origin HEAD && git push --tags"
   },
