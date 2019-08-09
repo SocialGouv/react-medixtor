@@ -6,15 +6,15 @@ cache:
 jobs:
   include:
     - stage: Test
-      name: Unit Tests
+      name: Unit Tests (v8)
       node_js: "8"
       script: ./scripts/ci/run_unit_tests.sh
     - stage: Test
-      name: Unit Tests
+      name: Unit Tests (v10)
       node_js: "10"
       script: ./scripts/ci/run_unit_tests.sh
     - stage: Test
-      name: Unit Tests
+      name: Unit Tests (v12)
       node_js: "12"
       script: ./scripts/ci/run_unit_tests.sh
 
