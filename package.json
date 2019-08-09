@@ -28,8 +28,8 @@
     "@babel/core": "7.5.5",
     "@babel/preset-env": "7.5.5",
     "@babel/preset-react": "7.0.0",
-    "@mdx-js/mdx": "^1.1.6",
-    "@mdx-js/react": "^1.1.6",
+    "@mdx-js/mdx": "1.1.6",
+    "@mdx-js/react": "1.1.6",
     "@mdx-js/tag": "0.20.3",
     "@socialgouv/eslint-config-react": "0.9.3",
     "concurrently": "4.1.1",
@@ -53,6 +53,7 @@
     "rollup-plugin-node-globals": "1.4.0",
     "rollup-plugin-node-resolve": "5.2.0",
     "rollup-plugin-peer-deps-external": "2.2.0",
+    "rollup-plugin-postcss": "2.0.3",
     "showdown": "1.9.0",
     "unified": "8.3.2"
   },
