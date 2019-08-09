@@ -87,6 +87,14 @@ yarn
 yarn dev
 ```
 
+### Publish
+
+```bash
+npm version [major|minor|patch|preversion]
+```
+
+This will automatically build, tag and publish into Github.
+
 ---
 
 [img-travis]:
