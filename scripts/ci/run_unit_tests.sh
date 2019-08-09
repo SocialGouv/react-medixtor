@@ -4,6 +4,6 @@
 set -e
 
 yarn --frozen-lockfile
-yarn test --coverage
+yarn test
 # Push tests coverage data to Coveralls:
 ./node_modules/.bin/coveralls < ./coverage/lcov.info
