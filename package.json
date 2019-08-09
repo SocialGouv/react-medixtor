@@ -34,7 +34,7 @@
     "@mdx-js/tag": "0.20.3",
     "@socialgouv/eslint-config-react": "0.9.3",
     "concurrently": "4.1.1",
-    "coveralls": "3.0.5",
+    "coveralls": "3.0.6",
     "eslint": "6.1.0",
     "http-server": "0.11.1",
     "jest": "24.8.0",
