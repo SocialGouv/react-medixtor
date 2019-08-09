@@ -8,7 +8,7 @@
     "build": "rollup -c",
     "build:watch": "yarn build --watch",
     "dev": "concurrently \"yarn build:watch\" \"yarn serve\"",
-    "serve": "http-server ./",
+    "serve": "static-server ./",
     "test": "yarn test:lint",
     "test:lint": "eslint ./src/**",
     "preversion": "yarn build && git add -f ./dist/index.js",
@@ -36,7 +36,6 @@
     "concurrently": "4.1.1",
     "coveralls": "3.0.6",
     "eslint": "6.1.0",
-    "http-server": "0.11.1",
     "jest": "24.8.0",
     "prettier": "1.18.2",
     "react": "16.9.0",
@@ -56,9 +55,7 @@
     "rollup-plugin-peer-deps-external": "2.2.0",
     "rollup-plugin-postcss": "2.0.3",
     "showdown": "1.9.0",
+    "static-server": "2.2.1",
     "unified": "8.3.2"
-  },
-  "resolutions": {
-    "ecstatic": "3.0.0"
   }
 }
