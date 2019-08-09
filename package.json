@@ -57,5 +57,9 @@
     "showdown": "1.9.0",
     "static-server": "2.2.1",
     "unified": "8.3.2"
+  },
+  "resolutions": {
+    "bl": ">=0.9.5 <1.0.0 || >=1.0.1",
+    "semver": ">=4.3.2"
   }
 }
