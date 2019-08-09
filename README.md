@@ -1,5 +1,6 @@
 # Meditor
 
+[![Latest Version][img-version]][link-version]
 [![Travis CI Status][img-travis]][link-travis]
 
 [MDX][link-mdx]-based Editor and Previewer for React.
@@ -90,5 +91,8 @@ yarn dev
 
 [img-travis]:
   https://img.shields.io/travis/com/SocialGouv/meditor?style=flat-square
+[img-version]:
+  https://img.shields.io/github/package-json/v/SocialGouv/meditor?style=flat-square
 [link-mdx]: https://mdxjs.com
 [link-travis]: https://travis-ci.com/SocialGouv/meditor
+[link-version]: https://github.com/SocialGouv/meditor/releases
