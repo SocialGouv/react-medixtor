@@ -5,31 +5,7 @@ import remarkReact from "remark-react";
 import showdown from "showdown";
 import unified from "unified";
 
-const STYLES = {
-  CONTAINER: {
-    border: "solid 1px gray",
-    boxSizing: "border-box",
-    display: "flex",
-    flexGrow: 1,
-    height: "100%",
-    width: "100%"
-  },
-  EDITOR: {
-    border: 0,
-    borderRight: "solid 1px lightgray",
-    flexGrow: 1,
-    fontFamily: "monospace",
-    maxWidth: "50%",
-    padding: "1rem",
-    width: "50%"
-  },
-  PREVIEW: {
-    flexGrow: 1,
-    maxWidth: "50%",
-    padding: "1rem",
-    width: "50%"
-  }
-};
+import "./Meditor.css";
 
 const showdownConverter = new showdown.Converter();
 
@@ -96,29 +72,34 @@ class Meditor extends React.Component {
     const {
       className = "",
       disabled = false,
+      editorClassName = "",
       editorStyle = {},
       noEditor = false,
       noPreview = false,
       noSpellCheck = false,
+      previewClassName = "",
       previewStyle = {},
       style = {}
     } = this.props;
     const { jsx } = this.state;
 
     return (
-      <div className={className} style={{ ...STYLES.CONTAINER, ...style }}>
+      <div className={`container ${className}`} style={style}>
         {!noEditor && (
           <textarea
+            className={`editor ${editorClassName}`}
             defaultValue={defaultValue}
             disabled={disabled}
             onChange={this.onChange.bind(this)}
             ref={node => (this.$editor = node)}
             spellCheck={!noSpellCheck}
-            style={{ ...STYLES.EDITOR, ...editorStyle }}
+            style={editorStyle}
           />
         )}
         {!noPreview && (
-          <div style={{ ...STYLES.PREVIEW, ...previewStyle }}>{jsx}</div>
+          <div className={`preview ${previewClassName}`} style={previewStyle}>
+            {jsx}
+          </div>
         )}
       </div>
     );
@@ -129,12 +110,14 @@ Meditor.propTypes = {
   className: PropTypes.string,
   defaultValue: PropTypes.string,
   disabled: PropTypes.bool,
+  editorClassName: PropTypes.string,
   editorStyle: PropTypes.object,
   headersOffset: PropTypes.number,
   onChange: PropTypes.func,
   noEditor: PropTypes.bool,
   noPreview: PropTypes.bool,
   previewStyle: PropTypes.object,
+  previewClassName: PropTypes.string,
   noSpellCheck: PropTypes.bool,
   style: PropTypes.object
 };
