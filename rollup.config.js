@@ -6,6 +6,7 @@ import nodeBuiltins from "rollup-plugin-node-builtins";
 import nodeGlobals from "rollup-plugin-node-globals";
 import nodeResolve from "rollup-plugin-node-resolve";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import postcss from "rollup-plugin-postcss";
 
 export default {
   input: "src/Meditor.jsx",
@@ -24,6 +25,10 @@ export default {
   external: ["react", "react-dom"],
 
   plugins: [
+    postcss({
+      minimize: true,
+      sourceMap: "inline"
+    }),
     // Externalize peer dependencies:
     peerDepsExternal(),
     // Import JSON files:
