@@ -1,0 +1,25 @@
+.container {
+  border: solid 1px gray;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.editor {
+  border: 0;
+  border-right: solid 1px lightgray;
+  flex-grow: 1;
+  font-family: monospace;
+  max-width: 50%;
+  padding: 1rem;
+  width: 50%;
+}
+
+.preview {
+  flex-grow: 1;
+  max-width: 50%;
+  padding: 1rem;
+  width: 50%;
+}
