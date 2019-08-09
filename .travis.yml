@@ -1,8 +1,4 @@
 language: node_js
-node_js:
-  - "8"
-  - "10"
-  - "12"
 
 cache:
   yarn: true
@@ -11,13 +7,16 @@ jobs:
   include:
     - stage: Test
       name: Unit Tests
-      install:
-        - yarn --frozen-lockfile
-      script:
-        - yarn test --coverage
-      after_script:
-        # Push tests coverage data to Coveralls:
-        - ./node_modules/.bin/coveralls < ./coverage/lcov.info
+      node_js: "8"
+      script: ./scripts/ci/run_unit_tests.sh
+    - stage: Test
+      name: Unit Tests
+      node_js: "10"
+      script: ./scripts/ci/run_unit_tests.sh
+    - stage: Test
+      name: Unit Tests
+      node_js: "12"
+      script: ./scripts/ci/run_unit_tests.sh
 
 notifications:
   email:
