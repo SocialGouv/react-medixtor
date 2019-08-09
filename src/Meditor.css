@@ -16,6 +16,9 @@
   padding: 1rem;
   width: 50%;
 }
+.editor:focus {
+  outline: none;
+}
 
 .preview {
   flex-grow: 1;
