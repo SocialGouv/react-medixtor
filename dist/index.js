@@ -348,10 +348,13 @@
       m = b ? Symbol.for("react.concurrent_mode") : 60111,
       n = b ? Symbol.for("react.forward_ref") : 60112,
       p = b ? Symbol.for("react.suspense") : 60113,
-      q = b ? Symbol.for("react.memo") : 60115,
-      r = b ? Symbol.for("react.lazy") : 60116;
+      q = b ? Symbol.for("react.suspense_list") : 60120,
+      r = b ? Symbol.for("react.memo") : 60115,
+      t = b ? Symbol.for("react.lazy") : 60116,
+      v = b ? Symbol.for("react.fundamental") : 60117,
+      w = b ? Symbol.for("react.responder") : 60118;
 
-  function t(a) {
+  function x(a) {
     if ("object" === typeof a && null !== a) {
       var u = a.$$typeof;
 
@@ -379,19 +382,19 @@
 
           }
 
+        case t:
         case r:
-        case q:
         case d:
           return u;
       }
     }
   }
 
-  function v(a) {
-    return t(a) === m;
+  function y(a) {
+    return x(a) === m;
   }
 
-  exports.typeOf = t;
+  exports.typeOf = x;
   exports.AsyncMode = l;
   exports.ConcurrentMode = m;
   exports.ContextConsumer = k;
@@ -399,29 +402,29 @@
   exports.Element = c;
   exports.ForwardRef = n;
   exports.Fragment = e;
-  exports.Lazy = r;
-  exports.Memo = q;
+  exports.Lazy = t;
+  exports.Memo = r;
   exports.Portal = d;
   exports.Profiler = g;
   exports.StrictMode = f;
   exports.Suspense = p;
 
   exports.isValidElementType = function (a) {
-    return "string" === typeof a || "function" === typeof a || a === e || a === m || a === g || a === f || a === p || "object" === typeof a && null !== a && (a.$$typeof === r || a.$$typeof === q || a.$$typeof === h || a.$$typeof === k || a.$$typeof === n);
+    return "string" === typeof a || "function" === typeof a || a === e || a === m || a === g || a === f || a === p || a === q || "object" === typeof a && null !== a && (a.$$typeof === t || a.$$typeof === r || a.$$typeof === h || a.$$typeof === k || a.$$typeof === n || a.$$typeof === v || a.$$typeof === w);
   };
 
   exports.isAsyncMode = function (a) {
-    return v(a) || t(a) === l;
+    return y(a) || x(a) === l;
   };
 
-  exports.isConcurrentMode = v;
+  exports.isConcurrentMode = y;
 
   exports.isContextConsumer = function (a) {
-    return t(a) === k;
+    return x(a) === k;
   };
 
   exports.isContextProvider = function (a) {
-    return t(a) === h;
+    return x(a) === h;
   };
 
   exports.isElement = function (a) {
@@ -429,35 +432,35 @@
   };
 
   exports.isForwardRef = function (a) {
-    return t(a) === n;
+    return x(a) === n;
   };
 
   exports.isFragment = function (a) {
-    return t(a) === e;
+    return x(a) === e;
   };
 
   exports.isLazy = function (a) {
-    return t(a) === r;
+    return x(a) === t;
   };
 
   exports.isMemo = function (a) {
-    return t(a) === q;
+    return x(a) === r;
   };
 
   exports.isPortal = function (a) {
-    return t(a) === d;
+    return x(a) === d;
   };
 
   exports.isProfiler = function (a) {
-    return t(a) === g;
+    return x(a) === g;
   };
 
   exports.isStrictMode = function (a) {
-    return t(a) === f;
+    return x(a) === f;
   };
 
   exports.isSuspense = function (a) {
-    return t(a) === p;
+    return x(a) === p;
   };
   });
 
@@ -508,17 +511,22 @@
       var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
       var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
       var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-      var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace;
+      var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+      // (unstable) APIs that have been removed. Can we remove the symbols?
+
       var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
       var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
       var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
       var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+      var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
       var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
       var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+      var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
+      var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
 
       function isValidElementType(type) {
         return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-        type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE);
+        type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE);
       }
       /**
        * Forked from fbjs/warning:

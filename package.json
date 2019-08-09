@@ -1,6 +1,6 @@
 {
   "name": "@socialgouv/meditor",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "license": "Apache-2.0",
   "description": "MDX-based Editor and Previewer for React.",
   "main": "./dist/index.js",
