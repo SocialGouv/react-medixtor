@@ -28,55 +28,6 @@
     return Constructor;
   }
 
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
-  function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      if (enumerableOnly) symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-      keys.push.apply(keys, symbols);
-    }
-
-    return keys;
-  }
-
-  function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-
-      if (i % 2) {
-        ownKeys(source, true).forEach(function (key) {
-          _defineProperty(target, key, source[key]);
-        });
-      } else if (Object.getOwnPropertyDescriptors) {
-        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-      } else {
-        ownKeys(source).forEach(function (key) {
-          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
-      }
-    }
-
-    return target;
-  }
-
   function _inherits(subClass, superClass) {
     if (typeof superClass !== "function" && superClass !== null) {
       throw new TypeError("Super expression must either be null or a function");
@@ -26375,31 +26326,38 @@
     }
   }
 
-  var STYLES = {
-    CONTAINER: {
-      border: "solid 1px gray",
-      boxSizing: "border-box",
-      display: "flex",
-      flexGrow: 1,
-      height: "100%",
-      width: "100%"
-    },
-    EDITOR: {
-      border: 0,
-      borderRight: "solid 1px lightgray",
-      flexGrow: 1,
-      fontFamily: "monospace",
-      maxWidth: "50%",
-      padding: "1rem",
-      width: "50%"
-    },
-    PREVIEW: {
-      flexGrow: 1,
-      maxWidth: "50%",
-      padding: "1rem",
-      width: "50%"
+  function styleInject(css, ref) {
+    if (ref === void 0) ref = {};
+    var insertAt = ref.insertAt;
+
+    if (!css || typeof document === 'undefined') {
+      return;
     }
-  };
+
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var style = document.createElement('style');
+    style.type = 'text/css';
+
+    if (insertAt === 'top') {
+      if (head.firstChild) {
+        head.insertBefore(style, head.firstChild);
+      } else {
+        head.appendChild(style);
+      }
+    } else {
+      head.appendChild(style);
+    }
+
+    if (style.styleSheet) {
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+  }
+
+  var css = ".container{border:1px solid grey;box-sizing:border-box;display:flex;flex-grow:1;height:100%;width:100%}.editor{border:0;border-right:1px solid #d3d3d3;flex-grow:1;font-family:monospace;max-width:50%;padding:1rem;width:50%}.editor:focus{outline:none}.preview{flex-grow:1;max-width:50%;padding:1rem;width:50%}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk1lZGl0b3IuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLFdBQ0UscUJBQXNCLENBQ3RCLHFCQUFzQixDQUN0QixZQUFhLENBQ2IsV0FBWSxDQUNaLFdBQVksQ0FDWixVQUNGLENBRUEsUUFDRSxRQUFTLENBQ1QsOEJBQWlDLENBQ2pDLFdBQVksQ0FDWixxQkFBc0IsQ0FDdEIsYUFBYyxDQUNkLFlBQWEsQ0FDYixTQUNGLENBQ0EsY0FDRSxZQUNGLENBRUEsU0FDRSxXQUFZLENBQ1osYUFBYyxDQUNkLFlBQWEsQ0FDYixTQUNGIiwiZmlsZSI6Ik1lZGl0b3IuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lciB7XG4gIGJvcmRlcjogc29saWQgMXB4IGdyYXk7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZ3JvdzogMTtcbiAgaGVpZ2h0OiAxMDAlO1xuICB3aWR0aDogMTAwJTtcbn1cblxuLmVkaXRvciB7XG4gIGJvcmRlcjogMDtcbiAgYm9yZGVyLXJpZ2h0OiBzb2xpZCAxcHggbGlnaHRncmF5O1xuICBmbGV4LWdyb3c6IDE7XG4gIGZvbnQtZmFtaWx5OiBtb25vc3BhY2U7XG4gIG1heC13aWR0aDogNTAlO1xuICBwYWRkaW5nOiAxcmVtO1xuICB3aWR0aDogNTAlO1xufVxuLmVkaXRvcjpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG59XG5cbi5wcmV2aWV3IHtcbiAgZmxleC1ncm93OiAxO1xuICBtYXgtd2lkdGg6IDUwJTtcbiAgcGFkZGluZzogMXJlbTtcbiAgd2lkdGg6IDUwJTtcbn1cbiJdfQ== */";
+  styleInject(css);
+
   var showdownConverter = new showdown.Converter();
 
   var Meditor =
@@ -26481,6 +26439,8 @@
             className = _this$props$className === void 0 ? "" : _this$props$className,
             _this$props$disabled = _this$props.disabled,
             disabled = _this$props$disabled === void 0 ? false : _this$props$disabled,
+            _this$props$editorCla = _this$props.editorClassName,
+            editorClassName = _this$props$editorCla === void 0 ? "" : _this$props$editorCla,
             _this$props$editorSty = _this$props.editorStyle,
             editorStyle = _this$props$editorSty === void 0 ? {} : _this$props$editorSty,
             _this$props$noEditor = _this$props.noEditor,
@@ -26489,15 +26449,18 @@
             noPreview = _this$props$noPreview === void 0 ? false : _this$props$noPreview,
             _this$props$noSpellCh = _this$props.noSpellCheck,
             noSpellCheck = _this$props$noSpellCh === void 0 ? false : _this$props$noSpellCh,
+            _this$props$previewCl = _this$props.previewClassName,
+            previewClassName = _this$props$previewCl === void 0 ? "" : _this$props$previewCl,
             _this$props$previewSt = _this$props.previewStyle,
             previewStyle = _this$props$previewSt === void 0 ? {} : _this$props$previewSt,
             _this$props$style = _this$props.style,
             style = _this$props$style === void 0 ? {} : _this$props$style;
         var jsx = this.state.jsx;
         return React.createElement("div", {
-          className: className,
-          style: _objectSpread2({}, STYLES.CONTAINER, {}, style)
+          className: "container ".concat(className),
+          style: style
         }, !noEditor && React.createElement("textarea", {
+          className: "editor ".concat(editorClassName),
           defaultValue: defaultValue,
           disabled: disabled,
           onChange: this.onChange.bind(this),
@@ -26505,9 +26468,10 @@
             return _this2.$editor = node;
           },
           spellCheck: !noSpellCheck,
-          style: _objectSpread2({}, STYLES.EDITOR, {}, editorStyle)
+          style: editorStyle
         }), !noPreview && React.createElement("div", {
-          style: _objectSpread2({}, STYLES.PREVIEW, {}, previewStyle)
+          className: "preview ".concat(previewClassName),
+          style: previewStyle
         }, jsx));
       }
     }]);
@@ -26519,12 +26483,14 @@
     className: propTypes.string,
     defaultValue: propTypes.string,
     disabled: propTypes.bool,
+    editorClassName: propTypes.string,
     editorStyle: propTypes.object,
     headersOffset: propTypes.number,
     onChange: propTypes.func,
     noEditor: propTypes.bool,
     noPreview: propTypes.bool,
     previewStyle: propTypes.object,
+    previewClassName: propTypes.string,
     noSpellCheck: propTypes.bool,
     style: propTypes.object
   };
