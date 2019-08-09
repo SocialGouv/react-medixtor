@@ -95,12 +95,17 @@ npm version [major|minor|patch|preversion]
 
 This will automatically build, tag and publish into Github.
 
+## License
+
+This package and its sources are distributed under [Apache 2.0][link-license].
+
 ---
 
 [img-travis]:
   https://img.shields.io/travis/com/SocialGouv/meditor?style=flat-square
 [img-version]:
   https://img.shields.io/github/package-json/v/SocialGouv/meditor?style=flat-square
+[link-license]: https://github.com/SocialGouv/meditor/blob/master/LICENSE
 [link-mdx]: https://mdxjs.com
 [link-travis]: https://travis-ci.com/SocialGouv/meditor
 [link-version]: https://github.com/SocialGouv/meditor/releases
