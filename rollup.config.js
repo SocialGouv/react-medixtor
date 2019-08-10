@@ -7,6 +7,7 @@ import nodeGlobals from "rollup-plugin-node-globals";
 import nodeResolve from "rollup-plugin-node-resolve";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
+import postcssUrl from "postcss-url";
 
 export default {
   input: "src/Meditor.jsx",
@@ -25,9 +26,11 @@ export default {
   external: ["react", "react-dom"],
 
   plugins: [
+    // Inject CSS in JS with resources as data uris:
     postcss({
       minimize: true,
-      sourceMap: "inline"
+      sourceMap: "inline",
+      plugins: [postcssUrl({ url: "inline" })]
     }),
     // Externalize peer dependencies:
     peerDepsExternal(),
