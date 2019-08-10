@@ -4,6 +4,9 @@
   "license": "Apache-2.0",
   "description": "MDX-based Editor and Previewer for React.",
   "main": "./dist/index.js",
+  "engines": {
+    "node": ">= 10.16.0"
+  },
   "scripts": {
     "build": "rollup -c",
     "build:watch": "yarn build --watch",
@@ -13,17 +16,6 @@
     "test:lint": "eslint ./src/**",
     "preversion": "yarn build && git add -f ./dist/index.js",
     "postversion": "git push origin HEAD && git push --tags"
-  },
-  "keywords": [
-    "editor",
-    "markdown",
-    "md",
-    "mdx",
-    "react"
-  ],
-  "peerDependencies": {
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
@@ -58,8 +50,19 @@
     "static-server": "2.2.1",
     "unified": "8.3.2"
   },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
   "resolutions": {
     "bl": ">=0.9.5 <1.0.0 || >=1.0.1",
     "semver": ">=4.3.2"
-  }
+  },
+  "keywords": [
+    "editor",
+    "markdown",
+    "md",
+    "mdx",
+    "react"
+  ]
 }
