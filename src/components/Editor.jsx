@@ -2,23 +2,19 @@ import PropTypes from "prop-types";
 import React from "react";
 import remarkParse from "remark-parse";
 import remarkReact from "remark-react";
+import showdown from "showdown";
 import unified from "unified";
 
-import Editor from "./components/Editor.jsx";
+import "./Editor.css";
 
-import "./Meditor.css";
+const showdownConverter = new showdown.Converter();
 
-class Meditor extends React.Component {
+class Editor extends React.Component {
   constructor(props) {
     super(props);
 
     const { defaultValue } = props;
     this.defaultValue = defaultValue !== undefined ? defaultValue : "";
-
-    const jsx = this.convertMarkdownToJsx(this.defaultValue);
-    this.state = {
-      jsx
-    };
   }
 
   customizeMarkdown(source) {
@@ -26,6 +22,16 @@ class Meditor extends React.Component {
     if (headersOffset === 1) return source;
 
     return source.replace(/^\s*(#+)/gm, `$1${"#".repeat(headersOffset - 1)}`);
+  }
+
+  normalizeMarkdown(source) {
+    return source.trim();
+  }
+
+  convertMarkdownToHtml(source) {
+    const customSource = this.customizeMarkdown(source);
+
+    return showdownConverter.makeHtml(customSource);
   }
 
   convertMarkdownToJsx(source) {
@@ -37,13 +43,19 @@ class Meditor extends React.Component {
       .processSync(customSource).contents;
   }
 
-  onChange(output) {
-    this.setState({ jsx: output.jsx });
-
+  onChange() {
     const { onChange } = this.props;
-    if (onChange === undefined) return;
+    const { value } = this.$editor;
+    const html = this.convertMarkdownToHtml(value);
+    const jsx = this.convertMarkdownToJsx(value);
+    const source = this.normalizeMarkdown(value);
 
-    onChange(output);
+    onChange({
+      html,
+      jsx,
+      source,
+      rawSource: value
+    });
   }
 
   render() {
@@ -51,40 +63,25 @@ class Meditor extends React.Component {
     const {
       className = "",
       disabled = false,
-      editorClassName = "",
-      editorStyle = {},
-      noEditor = false,
-      noPreview = false,
       noSpellCheck = false,
-      previewClassName = "",
-      previewStyle = {},
       style = {}
     } = this.props;
-    const { jsx } = this.state;
 
     return (
-      <div className={`container ${className}`} style={style}>
-        {!noEditor && (
-          <Editor
-            className={`editor ${editorClassName}`}
-            defaultValue={defaultValue}
-            disabled={disabled}
-            onChange={this.onChange.bind(this)}
-            spellCheck={!noSpellCheck}
-            style={editorStyle}
-          />
-        )}
-        {!noPreview && (
-          <div className={`preview ${previewClassName}`} style={previewStyle}>
-            {jsx}
-          </div>
-        )}
-      </div>
+      <textarea
+        className={`editor ${className}`}
+        defaultValue={defaultValue}
+        disabled={disabled}
+        onChange={this.onChange.bind(this)}
+        ref={node => (this.$editor = node)}
+        spellCheck={!noSpellCheck}
+        style={style}
+      />
     );
   }
 }
 
-Meditor.propTypes = {
+Editor.propTypes = {
   className: PropTypes.string,
   defaultValue: PropTypes.string,
   disabled: PropTypes.bool,
@@ -100,4 +97,4 @@ Meditor.propTypes = {
   style: PropTypes.object
 };
 
-export default Meditor;
+export default Editor;
