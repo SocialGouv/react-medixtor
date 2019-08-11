@@ -8,7 +8,10 @@ import nodeGlobals from "rollup-plugin-node-globals";
 import nodeResolve from "rollup-plugin-node-resolve";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
+import { terser } from "rollup-plugin-terser";
 import postcssUrl from "postcss-url";
+
+const { NODE_ENV } = process.env;
 
 export default {
   input: "src",
@@ -29,8 +32,7 @@ export default {
   plugins: [
     // Inject CSS in JS with resources as data uris:
     postcss({
-      minimize: true,
-      sourceMap: "inline",
+      minimize: NODE_ENV !== "development",
       plugins: [postcssUrl({ url: "inline" })]
     }),
     // Externalize peer dependencies:
@@ -51,8 +53,14 @@ export default {
     copy({
       targets: [{ src: "./src/index.d.ts", dest: "./dist" }]
     }),
-    // Calculate output bundle size:
-    filesize()
+    ...(NODE_ENV !== "development"
+      ? [
+          // Minify source:
+          terser(),
+          // Calculate output bundle size:
+          filesize()
+        ]
+      : [])
   ],
 
   // Silence "Cirular dependency" warnings:
