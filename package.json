@@ -16,7 +16,7 @@
     "test": "yarn test:lint",
     "test:lint": "eslint ./src/**",
     "preversion": "yarn build && git add -f ./dist/index.d.ts ./dist/index.js",
-    "postversion": "git push origin HEAD && git push --tags"
+    "postversion": "git push origin HEAD && git push --tags && git rm --cached ./dist/index.d.ts ./dist/index.js"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
