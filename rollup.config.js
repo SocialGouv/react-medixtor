@@ -1,5 +1,6 @@
 import babel from "rollup-plugin-babel";
 import commonjs from "rollup-plugin-commonjs";
+import copy from "rollup-plugin-copy";
 import filesize from "rollup-plugin-filesize";
 import json from "rollup-plugin-json";
 import nodeBuiltins from "rollup-plugin-node-builtins";
@@ -10,7 +11,7 @@ import postcss from "rollup-plugin-postcss";
 import postcssUrl from "postcss-url";
 
 export default {
-  input: "src/Meditor.jsx",
+  input: "src",
 
   output: [
     {
@@ -46,6 +47,10 @@ export default {
     nodeBuiltins(),
     // Locate dependencies via node.js resolution algorithm:
     nodeResolve(),
+    // Copy typings definitions:
+    copy({
+      targets: [{ src: "./src/index.d.ts", dest: "./dist" }]
+    }),
     // Calculate output bundle size:
     filesize()
   ]
