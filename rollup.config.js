@@ -53,5 +53,10 @@ export default {
     }),
     // Calculate output bundle size:
     filesize()
-  ]
+  ],
+
+  // Silence "Cirular dependency" warnings:
+  onwarn(warning, rollupWarn) {
+    if (warning.code !== "CIRCULAR_DEPENDENCY") rollupWarn(warning);
+  }
 };
