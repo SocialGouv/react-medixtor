@@ -4,6 +4,7 @@
   "license": "Apache-2.0",
   "description": "MDX-based Editor and Previewer for React.",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "engines": {
     "node": ">= 10.16.0"
   },
@@ -14,7 +15,7 @@
     "serve": "static-server ./",
     "test": "yarn test:lint",
     "test:lint": "eslint ./src/**",
-    "preversion": "yarn build && git add -f ./dist/index.js",
+    "preversion": "yarn build && git add -f ./dist/index.d.ts ./dist/index.js",
     "postversion": "git push origin HEAD && git push --tags"
   },
   "devDependencies": {
