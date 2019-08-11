@@ -11,7 +11,7 @@
   "scripts": {
     "build": "rollup -c",
     "build:watch": "yarn build --watch",
-    "dev": "concurrently \"yarn build:watch\" \"yarn serve\"",
+    "dev": "cross-env NODE_ENV=development concurrently \"yarn build:watch\" \"yarn serve\"",
     "serve": "static-server ./",
     "test": "yarn test:lint",
     "test:lint": "eslint ./src/**",
