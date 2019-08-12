@@ -82,10 +82,26 @@ output: {
 
 ## Contribute
 
+### Getting started
+
+Just install the dependencies
+
 ```bash
 yarn
+```
+
+### Development
+
+This will watch your changes and live-reload the browser:
+
+```bash
 yarn dev
 ```
+
+You can now open Meditor in [http://localhost:10001](http://localhost:10001).
+
+_:memo: **Note:** You need to manually refresh when changing `index.html` or
+`index.css` files._
 
 ### Publish
 

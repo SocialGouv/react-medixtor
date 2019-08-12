@@ -3,11 +3,13 @@ import commonjs from "rollup-plugin-commonjs";
 import copy from "rollup-plugin-copy";
 import filesize from "rollup-plugin-filesize";
 import json from "rollup-plugin-json";
+import livereload from "rollup-plugin-livereload";
 import nodeBuiltins from "rollup-plugin-node-builtins";
 import nodeGlobals from "rollup-plugin-node-globals";
 import nodeResolve from "rollup-plugin-node-resolve";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
+import serve from "rollup-plugin-serve";
 import { terser } from "rollup-plugin-terser";
 import postcssUrl from "postcss-url";
 
@@ -60,7 +62,14 @@ export default {
           // Calculate output bundle size:
           filesize()
         ]
-      : [])
+      : [
+          // Serve ./index.html:
+          serve(),
+          // Enable reload:
+          livereload({
+            watch: "./dist"
+          })
+        ])
   ],
 
   // Silence "Cirular dependency" warnings:
