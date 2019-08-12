@@ -1,11 +1,36 @@
 <html>
   <head>
+    <link rel="stylesheet" href="/index.css" />
     <style>
-      html,
-      body,
-      #root {
+      body {
+        font-family: sans-serif;
         height: 100vh;
         margin: 0;
+      }
+
+      #root {
+        height: 100%;
+      }
+
+      textarea {
+        font-size: 0.75rem !important;
+      }
+
+      .preview > h1:first-child,
+      .preview > h2:first-child,
+      .preview > h3:first-child,
+      .preview > h4:first-child,
+      .preview > h5:first-child,
+      .preview > h6:first-child {
+        margin-top: 0;
+      }
+      .preview a,
+      .preview em,
+      .preview strong {
+        font-size: 1em;
+      }
+      .preview li {
+        font-size: 1.4em;
       }
     </style>
   </head>
@@ -24,9 +49,47 @@
     <script>
       ReactDOM.render(
         React.createElement(Meditor, {
-          defaultValue: "## hi",
-          headersOffset: 2,
-          onChange: console.log
+          defaultValue: `
+# Header 1
+
+This is a paragraph with **some bold text**, _an italic one_ and
+[a link](https://example.com).
+
+## Header 2
+
+- This
+- Is
+- An
+- Unordered
+- List
+
+### Header 3
+
+1. This
+2. Is
+3. An
+4. Ordered
+5. List
+
+#### Header 4
+
+> This is a quote.
+
+##### Header 5
+
+\`\`\`
+This is some code.
+\`\`\`
+
+###### Header 6
+
+| An   | Amazing | Table |
+| ---- | ------- | ----- |
+| With | Some    | Data  |
+| And  | Even    | More  |
+          `,
+          // headersOffset: 2,
+          onChange: ({ source }) => console.log(source)
         }),
         document.querySelector("#root")
       );
