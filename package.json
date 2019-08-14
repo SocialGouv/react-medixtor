@@ -55,7 +55,6 @@
     "rollup-plugin-postcss": "2.0.3",
     "rollup-plugin-serve": "1.0.1",
     "rollup-plugin-terser": "5.1.1",
-    "showdown": "1.9.0",
     "unified": "8.3.2"
   },
   "peerDependencies": {
