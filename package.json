@@ -12,8 +12,9 @@
     "build": "rollup -c",
     "build:watch": "yarn build --watch",
     "dev": "cross-env NODE_ENV=development yarn build:watch",
-    "test": "yarn test:lint",
+    "test": "yarn test:lint && yarn test:unit",
     "test:lint": "eslint ./src/**",
+    "test:unit": "jest",
     "preversion": "yarn build && git add -f ./dist/index.d.ts ./dist/index.js",
     "postversion": "git push origin HEAD && git push --tags && git rm --cached ./dist/index.d.ts ./dist/index.js"
   },
@@ -26,6 +27,7 @@
     "@mdx-js/tag": "0.20.3",
     "@socialgouv/eslint-config-react": "0.9.4",
     "@types/react": "16.9.1",
+    "babel-jest": "24.9.0",
     "coveralls": "3.0.6",
     "cross-env": "5.2.0",
     "debounce": "1.2.0",
