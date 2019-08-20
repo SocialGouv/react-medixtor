@@ -1,10 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
-import remarkParse from "remark-parse";
-import remarkReact from "remark-react";
-import unified from "unified";
 
-import Editor from "./components/Editor.jsx";
+import Editor from "./components/Editor";
 
 import "./Meditor.css";
 
@@ -15,26 +12,9 @@ class Meditor extends React.Component {
     const { defaultValue } = props;
     this.defaultValue = defaultValue !== undefined ? defaultValue : "";
 
-    const jsx = this.convertMarkdownToJsx(this.defaultValue);
     this.state = {
-      jsx
+      jsx: null
     };
-  }
-
-  customizeMarkdown(source) {
-    const { headersOffset = 1 } = this.props;
-    if (headersOffset === 1) return source;
-
-    return source.replace(/^\s*(#+)/gm, `$1${"#".repeat(headersOffset - 1)}`);
-  }
-
-  convertMarkdownToJsx(source) {
-    const customSource = this.customizeMarkdown(source);
-
-    return unified()
-      .use(remarkParse)
-      .use(remarkReact)
-      .processSync(customSource).contents;
   }
 
   onChange(output) {

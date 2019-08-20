@@ -1,11 +1,21 @@
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  font-size: 32px;
+  min-width: 50%;
+  max-width: 50%;
+  width: 50%;
+}
+
 .editor {
   border: 0;
   border-right: solid 1px lightgray;
   flex-grow: 1;
+  font-size: 1rem;
   font-family: monospace;
-  max-width: 50%;
   padding: 1rem;
-  width: 50%;
+  resize: none;
 }
 .editor:focus {
   outline: none;

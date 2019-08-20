@@ -1,38 +1,6 @@
 <html>
   <head>
     <link rel="stylesheet" href="/index.css" />
-    <style>
-      body {
-        font-family: sans-serif;
-        height: 100vh;
-        margin: 0;
-      }
-
-      #root {
-        height: 100%;
-      }
-
-      textarea {
-        font-size: 0.75rem !important;
-      }
-
-      .preview > h1:first-child,
-      .preview > h2:first-child,
-      .preview > h3:first-child,
-      .preview > h4:first-child,
-      .preview > h5:first-child,
-      .preview > h6:first-child {
-        margin-top: 0;
-      }
-      .preview a,
-      .preview em,
-      .preview strong {
-        font-size: 1em;
-      }
-      .preview li {
-        font-size: 1.4em;
-      }
-    </style>
   </head>
   <body>
     <div id="root"></div>
@@ -66,10 +34,10 @@ This is a paragraph with **some bold text**, _an italic one_ and
 ### Header 3
 
 1. This
-2. Is
-3. An
-4. Ordered
-5. List
+1. Is
+1. An
+1. Ordered
+1. List
 
 #### Header 4
 
@@ -89,7 +57,7 @@ This is some code.
 | And  | Even    | More  |
           `,
           // headersOffset: 2,
-          onChange: ({ source }) => console.log(source)
+          onChange: ({ source }) => console.debug(`"${source}"`)
         }),
         document.querySelector("#root")
       );
