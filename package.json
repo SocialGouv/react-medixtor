@@ -24,7 +24,7 @@
     "@mdx-js/mdx": "1.4.5",
     "@mdx-js/react": "1.4.5",
     "@mdx-js/tag": "0.20.3",
-    "@socialgouv/eslint-config-react": "0.9.7",
+    "@socialgouv/eslint-config-react": "0.10.0",
     "concurrently": "4.1.2",
     "coveralls": "3.0.6",
     "eslint": "6.3.0",
