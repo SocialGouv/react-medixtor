@@ -48,7 +48,7 @@
     "rollup-plugin-postcss": "2.0.3",
     "showdown": "1.9.0",
     "static-server": "2.2.1",
-    "unified": "8.3.2"
+    "unified": "8.4.0"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
