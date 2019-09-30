@@ -3,16 +3,53 @@ language: node_js
 cache:
   yarn: true
 
+stages:
+  - Test
+  - name: Release
+    if: repo = "SocialGouv/react-meditor" AND tag IS present
+
 jobs:
   include:
     - stage: Test
       name: Unit Tests (v10)
       node_js: "10"
-      script: ./scripts/ci/run_unit_tests.sh
+
     - stage: Test
       name: Unit Tests (v12)
       node_js: "12"
+      # Only report coverage within this job:
       script: ./scripts/ci/run_unit_tests.sh
+
+    - stage: Release
+      name: Github Release
+      script: skip
+      before_deploy:
+        - yarn ci:generate:release_notes
+      deploy:
+        provider: releases
+        api_key: $GITHUB_TOKEN
+        edge:
+          branch: master
+        release_notes_file: ./RELEASE_NOTES.md
+        on:
+          repo: SocialGouv/react-meditor
+          tags: true
+
+    - stage: Release
+      name: NPM Package
+      script: skip
+      before_deploy:
+        - yarn build
+      deploy:
+        provider: npm
+        access: public
+        api_token: $NPM_TOKEN
+        edge:
+          branch: master
+        email: ivan.gabriele@gmail.com
+        on:
+          repo: SocialGouv/react-meditor
+          tags: true
 
 notifications:
   email:
