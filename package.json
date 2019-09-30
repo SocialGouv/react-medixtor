@@ -8,6 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "build:watch": "yarn build --watch",
+    "ci:generate:release_notes": "node ./scripts/ci/generate_release_notes.js",
     "dev": "cross-env NODE_ENV=development yarn build:watch",
     "test": "yarn test:lint && yarn test:unit",
     "test:lint": "eslint ./src/**",
