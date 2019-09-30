@@ -1,8 +1,0 @@
-{
-  "extends": ["github>SocialGouv/renovate-config"],
-  "automerge": true,
-  "major": {
-    "automerge": false
-  },
-  "rebaseStalePrs": true
-}
