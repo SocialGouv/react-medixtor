@@ -27,12 +27,12 @@
 ## Get Started
 
 ```bash
-npm i -E react-meditor
+npm i https://github.com/SocialGouv/meditor
 ```
 
 ```js
 import React from "react";
-import Meditor from "@SocialGouv/react-meditor";
+import Meditor from "@SocialGouv/meditor";
 
 export default class MyApp extends React.Component {
   onEdit(output) {
@@ -76,12 +76,26 @@ output: {
 
 ## Contribute
 
-### Get Started
+### Getting started
+
+Just install the dependencies
 
 ```bash
 yarn
+```
+
+### Development
+
+This will watch your changes and live-reload the browser:
+
+```bash
 yarn dev
 ```
+
+You can now open Meditor in [http://localhost:10001](http://localhost:10001).
+
+_:memo: **Note:** You still need to manually refresh when changing `index.html` or `index.css`
+files._
 
 ### Test
 
@@ -89,6 +103,14 @@ yarn dev
 - Lint Tests: `yarn test:lint`
 - Unit Tests: `yarn test:unit`
 - Unit Tests (watch): `yarn test:watch`
+
+### Publish
+
+```bash
+npm version [major|minor|patch|preversion]
+```
+
+This will automatically build, tag and publish into Github.
 
 ### VSCode Settings
 
@@ -101,14 +123,6 @@ yarn dev
   "editor.rulers": [100]
 }
 ```
-
-### Publish
-
-```bash
-npm version [major|minor|patch|preversion]
-```
-
-This will automatically build, tag and publish into Github.
 
 ## License
 
