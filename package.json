@@ -14,7 +14,7 @@
     "test:lint": "eslint ./src/**",
     "test:unit": "jest",
     "test:watch": "yarn test:unit --watch",
-    "preversion": "yarn test && yarn build",
+    "preversion": "yarn test",
     "postversion": "git push origin HEAD && git push --tags"
   },
   "devDependencies": {
