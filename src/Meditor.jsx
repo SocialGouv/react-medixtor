@@ -5,7 +5,22 @@ import remarkReact from "remark-react";
 import showdown from "showdown";
 import unified from "unified";
 
+import joinClassNames from "./helpers/joinClassNames";
+
 import "./Meditor.css";
+
+const DEFAULT_PROPS = {
+  className: "",
+  disabled: false,
+  editorClassName: "",
+  editorStyle: {},
+  noEditor: false,
+  noPreview: false,
+  noSpellCheck: false,
+  previewClassName: "",
+  previewStyle: {},
+  style: {}
+};
 
 const showdownConverter = new showdown.Converter();
 
@@ -69,25 +84,36 @@ class Meditor extends React.Component {
 
   render() {
     const { defaultValue } = this;
-    const {
-      className = "",
-      disabled = false,
-      editorClassName = "",
-      editorStyle = {},
-      noEditor = false,
-      noPreview = false,
-      noSpellCheck = false,
-      previewClassName = "",
-      previewStyle = {},
-      style = {}
-    } = this.props;
     const { jsx } = this.state;
+    const {
+      className,
+      disabled,
+      editorClassName,
+      editorStyle,
+      noEditor,
+      noPreview,
+      noSpellCheck,
+      previewClassName,
+      previewStyle,
+      style
+    } = {
+      ...DEFAULT_PROPS,
+      ...this.props
+    };
+
+    const editorClassNames = ["editor"];
+    if (noPreview && !noEditor) editorClassNames.push("editor--alone");
+    if (editorClassName.length !== 0) editorClassNames.push(editorClassName);
+
+    const previewClassNames = ["preview"];
+    if (noEditor && !noPreview) editorClassNames.push("preview--alone");
+    if (previewClassName.length !== 0) previewClassNames.push(previewClassName);
 
     return (
       <div className={`container ${className}`} style={style}>
         {!noEditor && (
           <textarea
-            className={`editor ${editorClassName}`}
+            className={joinClassNames(editorClassNames)}
             defaultValue={defaultValue}
             disabled={disabled}
             onChange={this.onChange.bind(this)}
@@ -97,7 +123,7 @@ class Meditor extends React.Component {
           />
         )}
         {!noPreview && (
-          <div className={`preview ${previewClassName}`} style={previewStyle}>
+          <div className={joinClassNames(previewClassNames)} style={previewStyle}>
             {jsx}
           </div>
         )}

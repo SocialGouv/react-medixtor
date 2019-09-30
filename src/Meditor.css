@@ -19,10 +19,18 @@
 .editor:focus {
   outline: none;
 }
+.editor--alone {
+  max-width: 100%;
+  width: 100%;
+}
 
 .preview {
   flex-grow: 1;
   max-width: 50%;
   padding: 1rem;
   width: 50%;
+}
+.preview--alone {
+  max-width: 100%;
+  width: 100%;
 }
