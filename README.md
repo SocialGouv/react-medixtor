@@ -32,7 +32,7 @@ npm i react-medixtor
 
 ```js
 import React from "react";
-import Meditor from "@SocialGouv/meditor";
+import Medixtor from "react-medixtor";
 
 export default class MyApp extends React.Component {
   onEdit(output) {
@@ -40,7 +40,7 @@ export default class MyApp extends React.Component {
   }
 
   render() {
-    return <Meditor defaultValue="## Hi @SocialGouv!" onChange={this.onEdit.bind(this)} />;
+    return <Medixtor defaultValue="## Hi @SocialGouv!" onChange={this.onEdit.bind(this)} />;
   }
 }
 ```
@@ -92,7 +92,7 @@ This will watch your changes and live-reload the browser:
 yarn dev
 ```
 
-You can now open Meditor in [http://localhost:10001](http://localhost:10001).
+You can now open Medixtor in [http://localhost:10001](http://localhost:10001).
 
 _:memo: **Note:** You still need to manually refresh when changing `index.html` or `index.css`
 files._

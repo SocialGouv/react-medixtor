@@ -9,7 +9,7 @@ export type OnChangeOutput = {
   rawSource: string;
 };
 
-export type MeditorProps = Partial<{
+export type MedixtorProps = Partial<{
   className: string;
   defaultValue: string;
   disabled: boolean;
@@ -25,6 +25,6 @@ export type MeditorProps = Partial<{
   style: object;
 }>;
 
-declare class Meditor extends React.Component<MeditorProps> {}
+declare class Medixtor extends React.Component<MedixtorProps> {}
 
-export = Meditor;
+export = Medixtor;

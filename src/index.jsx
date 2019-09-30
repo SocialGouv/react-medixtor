@@ -24,7 +24,7 @@ const DEFAULT_PROPS = {
 
 const showdownConverter = new showdown.Converter();
 
-class Meditor extends React.Component {
+class Medixtor extends React.Component {
   constructor(props) {
     super(props);
 
@@ -132,7 +132,7 @@ class Meditor extends React.Component {
   }
 }
 
-Meditor.propTypes = {
+Medixtor.propTypes = {
   className: PropTypes.string,
   defaultValue: PropTypes.string,
   disabled: PropTypes.bool,
@@ -148,4 +148,4 @@ Meditor.propTypes = {
   style: PropTypes.object
 };
 
-export default Meditor;
+export default Medixtor;

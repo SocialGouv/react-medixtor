@@ -22,7 +22,7 @@ export default {
     {
       file: "./dist/index.js",
       format: "umd",
-      name: "Meditor",
+      name: "Medixtor",
       globals: {
         react: "React"
       }

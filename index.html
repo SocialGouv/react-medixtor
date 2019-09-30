@@ -12,18 +12,12 @@
   <body>
     <div id="root"></div>
 
-    <script
-      src="https://unpkg.com/react@16/umd/react.development.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
-      crossorigin
-    ></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <script src="/dist/index.js"></script>
     <script>
       ReactDOM.render(
-        React.createElement(Meditor, {
+        React.createElement(Medixtor, {
           defaultValue: "## hi",
           headersOffset: 2,
           onChange: console.log
