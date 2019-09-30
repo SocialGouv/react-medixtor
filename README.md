@@ -1,4 +1,4 @@
-# react-meditor
+# react-medixtor
 
 [![License][img-license]][link-license] [![NPM Version][img-npm]][link-npm]
 [![Build Status][img-travis]][link-travis] [![Code Coverage][img-coveralls]][link-coveralls]
@@ -131,12 +131,12 @@ This package and its sources are distributed under [Apache 2.0][link-license].
 ---
 
 [img-coveralls]:
-  https://img.shields.io/coveralls/github/SocialGouv/react-meditor/master?style=flat-square
+  https://img.shields.io/coveralls/github/SocialGouv/react-medixtor/master?style=flat-square
 [img-license]: https://img.shields.io/badge/License-MIT-blue?style=flat-square
-[img-npm]: https://img.shields.io/npm/v/react-meditor?style=flat-square
-[img-travis]: https://img.shields.io/travis/com/SocialGouv/react-meditor?style=flat-square
-[link-coveralls]: https://coveralls.io/github/SocialGouv/react-meditor
-[link-license]: https://github.com/SocialGouv/react-meditor/blob/master/LICENSE
+[img-npm]: https://img.shields.io/npm/v/react-medixtor?style=flat-square
+[img-travis]: https://img.shields.io/travis/com/SocialGouv/react-medixtor?style=flat-square
+[link-coveralls]: https://coveralls.io/github/SocialGouv/react-medixtor
+[link-license]: https://github.com/SocialGouv/react-medixtor/blob/master/LICENSE
 [link-mdx]: https://mdxjs.com
-[link-npm]: https://www.npmjs.com/package/react-meditor
-[link-travis]: https://travis-ci.com/SocialGouv/react-meditor
+[link-npm]: https://www.npmjs.com/package/react-medixtor
+[link-travis]: https://travis-ci.com/SocialGouv/react-medixtor

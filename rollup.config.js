@@ -16,7 +16,7 @@ import postcssUrl from "postcss-url";
 const { NODE_ENV } = process.env;
 
 export default {
-  input: "src/Meditor.jsx",
+  input: "src/index.jsx",
 
   output: [
     {

@@ -7,7 +7,7 @@ import unified from "unified";
 
 import joinClassNames from "./helpers/joinClassNames";
 
-import "./Meditor.css";
+import "./index.css";
 
 const DEFAULT_PROPS = {
   className: "",
