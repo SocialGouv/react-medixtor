@@ -106,7 +106,7 @@ class Medixtor extends React.Component {
     if (editorClassName.length !== 0) editorClassNames.push(editorClassName);
 
     const previewClassNames = ["preview"];
-    if (noEditor && !noPreview) editorClassNames.push("preview--alone");
+    if (noEditor && !noPreview) previewClassNames.push("preview--alone");
     if (previewClassName.length !== 0) previewClassNames.push(previewClassName);
 
     return (
