@@ -27,7 +27,7 @@
 ## Get Started
 
 ```bash
-npm i https://github.com/SocialGouv/meditor
+npm i react-medixtor
 ```
 
 ```js
