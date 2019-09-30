@@ -16,7 +16,7 @@
     "test:lint": "eslint ./src/**",
     "test:unit": "jest",
     "test:watch": "yarn test:unit --watch",
-    "preversion": "yarn build && git add -f ./dist/index.js",
+    "preversion": "yarn test && yarn build",
     "postversion": "git push origin HEAD && git push --tags"
   },
   "devDependencies": {
