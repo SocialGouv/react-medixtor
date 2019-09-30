@@ -1,5 +1,7 @@
 /// <reference types="react" />
 
+import React from "react";
+
 export type OnChangeOutput = {
   html: string;
   jsx: React.ReactElement;
