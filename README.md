@@ -1,7 +1,7 @@
 # react-meditor
 
-[![Latest Version][img-version]][link-version]
-[![Travis CI Status][img-travis]][link-travis]
+[![License][img-license]][link-license] [![NPM Version][img-npm]][link-npm]
+[![Build Status][img-travis]][link-travis] [![Code Coverage][img-coveralls]][link-coveralls]
 
 [MDX][link-mdx]-based Editor, Previewer and Renderer for React.
 
@@ -10,8 +10,7 @@
 ## Features
 
 - Editor-only, Previewer-only or both either horizontally or vertically.
-- React component output (may be safely used to render the output natively
-  within React).
+- React component output (may be safely used to render the output natively within React).
 - Markdown output (not sanitized yet !).
 - HTML output (not sanitized yet !).
 - Browser spell-checking.
@@ -41,12 +40,7 @@ export default class MyApp extends React.Component {
   }
 
   render() {
-    return (
-      <Meditor
-        defaultValue="## Hi @SocialGouv!"
-        onChange={this.onEdit.bind(this)}
-      />
-    );
+    return <Meditor defaultValue="## Hi @SocialGouv!" onChange={this.onEdit.bind(this)} />;
   }
 }
 ```
@@ -82,9 +76,30 @@ output: {
 
 ## Contribute
 
+### Get Started
+
 ```bash
 yarn
 yarn dev
+```
+
+### Test
+
+- All Tests: `yarn test`
+- Lint Tests: `yarn test:lint`
+- Unit Tests: `yarn test:unit`
+- Unit Tests (watch): `yarn test:watch`
+
+### VSCode Settings
+
+```json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveTimeout": 2000,
+  "editor.formatOnPaste": true,
+  "editor.rulers": [100]
+}
 ```
 
 ### Publish
@@ -103,12 +118,11 @@ This package and its sources are distributed under [Apache 2.0][link-license].
 
 [img-coveralls]:
   https://img.shields.io/coveralls/github/SocialGouv/react-meditor/master?style=flat-square
-[img-travis]:
-  https://img.shields.io/travis/com/SocialGouv/react-meditor?style=flat-square
-[img-version]:
-  https://img.shields.io/github/package-json/v/SocialGouv/react-meditor?style=flat-square
+[img-license]: https://img.shields.io/badge/License-MIT-blue?style=flat-square
+[img-npm]: https://img.shields.io/npm/v/react-meditor?style=flat-square
+[img-travis]: https://img.shields.io/travis/com/SocialGouv/react-meditor?style=flat-square
 [link-coveralls]: https://coveralls.io/github/SocialGouv/react-meditor
 [link-license]: https://github.com/SocialGouv/react-meditor/blob/master/LICENSE
 [link-mdx]: https://mdxjs.com
+[link-npm]: https://www.npmjs.com/package/react-meditor
 [link-travis]: https://travis-ci.com/SocialGouv/react-meditor
-[link-version]: https://github.com/SocialGouv/react-meditor/releases
