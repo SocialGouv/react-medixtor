@@ -1,0 +1,32 @@
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  font-size: 32px;
+  min-width: 50%;
+  max-width: 50%;
+  width: 50%;
+}
+.editor-container--alone {
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+.editor {
+  border: 0;
+  border-right: solid 1px lightgray;
+  flex-grow: 1;
+  font-size: 1rem;
+  font-family: monospace;
+  padding: 1rem;
+  resize: none;
+}
+.editor:focus {
+  outline: none;
+}
+.editor--alone {
+  border-right: 0;
+  max-width: 100%;
+  width: 100%;
+}

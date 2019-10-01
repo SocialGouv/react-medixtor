@@ -1,13 +1,6 @@
 <html>
   <head>
-    <style>
-      html,
-      body,
-      #root {
-        height: 100vh;
-        margin: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="/index.css" />
   </head>
   <body>
     <div id="root"></div>
@@ -18,9 +11,48 @@
     <script>
       ReactDOM.render(
         React.createElement(Medixtor, {
-          defaultValue: "## hi",
-          headersOffset: 2,
-          onChange: console.log
+          defaultValue: `
+# Header 1
+
+This is a paragraph with **some bold text**, _an italic one_ and
+[a link](https://example.com).
+
+## Header 2
+
+- This
+- Is
+- An
+- Unordered
+- List
+
+### Header 3
+
+1. This
+1. Is
+1. An
+1. Ordered
+1. List
+
+#### Header 4
+
+> This is a quote.
+
+##### Header 5
+
+\`\`\`
+This is some code.
+\`\`\`
+
+###### Header 6
+
+| An   | Amazing | Table |
+| ---- | ------- | ----- |
+| With | Some    | Data  |
+| And  | Even    | More  |
+          `,
+          // headersOffset: 2,
+          isSingleView: true,
+          onChange: ({ source }) => console.debug(`"${source}"`)
         }),
         document.querySelector("#root")
       );

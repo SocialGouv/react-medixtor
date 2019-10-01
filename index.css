@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,900|Roboto+Mono&display=swap");
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  height: 100vh;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+/* *****************************************************************************
+  EDITOR
+*/
+
+.editor {
+  font-size: 0.75rem !important;
+}
+
+/* *****************************************************************************
+  PREVIEW
+*/
+
+.preview {
+  background-color: #f3f3f3;
+  color: #2e3538;
+  font-size: inherit;
+}
+.preview > :first-child {
+  margin-top: 0;
+}
+
+/* Blocks */
+
+.preview h1,
+.preview h2,
+.preview h3,
+.preview h4,
+.preview h5,
+.preview h6 {
+  line-height: 1.33;
+  margin: 1.8em 0;
+}
+.preview h1:after,
+.preview h2:after {
+  border-bottom: 1px solid hsla(0, 0%, 50%, 0.33);
+  content: "";
+  display: block;
+  position: relative;
+  top: 0.33em;
+}
+.preview blockquote,
+.preview dl,
+.preview ol,
+.preview p,
+.preview pre,
+.preview ul {
+  margin: 1.2em 0;
+}
+.preview blockquote {
+  border-left: 5px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+  display: block;
+  margin: 1.2em 0;
+  padding-left: 1.5em;
+}
+.preview pre > code {
+  -webkit-text-size-adjust: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  white-space: pre;
+}
+
+/* Child Blocks */
+
+.preview a {
+  color: #0c93e4;
+  text-decoration: underline;
+}
+.preview a:focus {
+  outline: 0;
+}
+.preview a:hover {
+  text-decoration: none;
+}
+
+.preview code {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  font-family: "Roboto Mono", monospace;
+  padding: 2px 4px;
+}
+
+.preview strong {
+  font-weight: 900;
+}
+
+/* Table Blocks */
+
+.preview table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+  width: 100%;
+}
+.preview td,
+.preview th {
+  border-right: 1px solid #dcdcdc;
+  border-top: 1px solid #dcdcdc;
+  padding: 8px 12px;
+}
+.preview td:first-child,
+.preview th:first-child {
+  border-left: 1px solid #dcdcdc;
+}
+.preview td {
+  border-bottom: 1px solid #dcdcdc;
+}

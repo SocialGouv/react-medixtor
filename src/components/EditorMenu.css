@@ -1,0 +1,63 @@
+.editor-menu-container {
+  background-color: #2c2c2c;
+  display: flex;
+  height: 2rem;
+  justify-content: space-between;
+  max-height: 2rem;
+  min-height: 2rem;
+  padding: 0 0.25rem;
+}
+.editor-menu-left,
+.editor-menu-right {
+  align-items: center;
+  display: flex;
+}
+.editor-menu-left {
+  justify-content: flex-start;
+}
+.editor-menu-right {
+  justify-content: flex-end;
+}
+.editor-menu-left > button,
+.editor-menu-right > button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  color: #b9b9b9;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.25rem;
+  text-align: center;
+  text-decoration: none;
+}
+.editor-menu-left > button.highlighted,
+.editor-menu-right > button.highlighted {
+  color: white;
+}
+.editor-menu-left > button:hover,
+.editor-menu-right > button:hover {
+  background-color: hsla(0, 0%, 100%, 0.1);
+  color: white;
+}
+.editor-menu-left > button:disabled,
+.editor-menu-right > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.editor-menu-left > button:disabled:hover,
+.editor-menu-right > button:disabled:hover {
+  background-color: transparent;
+  color: #b9b9b9;
+  opacity: 0.5;
+}
+.editor-menu-left > button:focus,
+.editor-menu-right > button:focus {
+  outline: none;
+}
+.editor-menu-left > .separator,
+.editor-menu-right > .separator {
+  width: 0.5rem;
+}
