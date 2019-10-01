@@ -1,109 +1,119 @@
-const selectionChangeEvent = new Event("selectionChange");
+function getSelectionChangeEvent() {
+  const selectionChangeEvent = new Event("selectionChange");
 
-Object.defineProperty(selectionChangeEvent, "selectionCaret", {
-  get: function() {
-    return this.target.selectionDirection === "forward"
-      ? this.target.selectionEnd
-      : this.target.selectionStart;
-  }
-});
+  Object.defineProperty(selectionChangeEvent, "selectionCaret", {
+    get: function() {
+      return this.target.selectionDirection === "forward"
+        ? this.target.selectionEnd
+        : this.target.selectionStart;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionCaretX", {
-  get: function() {
-    return this.target.selectionDirection === "forward" ? this.selectionEndX : this.selectionStartX;
-  }
-});
+  Object.defineProperty(selectionChangeEvent, "selectionCaretX", {
+    get: function() {
+      return this.target.selectionDirection === "forward"
+        ? this.selectionEndX
+        : this.selectionStartX;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionCaretY", {
-  get: function() {
-    return this.target.selectionDirection === "forward" ? this.selectionEndY : this.selectionStartY;
-  }
-});
+  Object.defineProperty(selectionChangeEvent, "selectionCaretY", {
+    get: function() {
+      return this.target.selectionDirection === "forward"
+        ? this.selectionEndY
+        : this.selectionStartY;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionIsCaret", {
-  get: function() {
-    return this.target.selectionStart === this.target.selectionEnd;
-  }
-});
+  Object.defineProperty(selectionChangeEvent, "selectionIsCaret", {
+    get: function() {
+      return this.target.selectionStart === this.target.selectionEnd;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionStart", {
-  get: function() {
-    return this.target.selectionStart;
-  }
-});
+  Object.defineProperty(selectionChangeEvent, "selectionStart", {
+    get: function() {
+      return this.target.selectionStart;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionStartSol", {
-  get: function() {
-    const { selectionStart, value } = this.target;
-    const valueUntilStart = value.substr(0, selectionStart);
-    const maybeSolIndex = valueUntilStart.lastIndexOf("\n");
-    const solIndex = maybeSolIndex !== -1 ? maybeSolIndex + 1 : 0;
+  Object.defineProperty(selectionChangeEvent, "selectionStartSol", {
+    get: function() {
+      const { selectionStart, value } = this.target;
+      const valueUntilStart = value.substr(0, selectionStart);
+      const maybeSolIndex = valueUntilStart.lastIndexOf("\n");
+      const solIndex = maybeSolIndex !== -1 ? maybeSolIndex + 1 : 0;
 
-    return solIndex;
-  }
-});
+      return solIndex;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionStartEol", {
-  get: function() {
-    const { selectionStart, value } = this.target;
-    const maybeEolIndex = value.indexOf("\n", selectionStart);
-    const eolIndex = maybeEolIndex !== -1 ? maybeEolIndex : value.length - 1;
+  Object.defineProperty(selectionChangeEvent, "selectionStartEol", {
+    get: function() {
+      const { selectionStart, value } = this.target;
+      const maybeEolIndex = value.indexOf("\n", selectionStart);
+      const eolIndex = maybeEolIndex !== -1 ? maybeEolIndex : value.length - 1;
 
-    return eolIndex;
-  }
-});
+      return eolIndex;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionStartX", {
-  get: function() {
-    const { selectionStart, value } = this.target;
-    const valueUntilStart = value.substr(0, selectionStart);
-    const valueFromStartSol = valueUntilStart.substr(this.selectionStartSol);
-    const valueFromStartSolLength = valueFromStartSol.length;
+  Object.defineProperty(selectionChangeEvent, "selectionStartX", {
+    get: function() {
+      const { selectionStart, value } = this.target;
+      const valueUntilStart = value.substr(0, selectionStart);
+      const valueFromStartSol = valueUntilStart.substr(this.selectionStartSol);
+      const valueFromStartSolLength = valueFromStartSol.length;
 
-    return valueFromStartSolLength;
-  }
-});
+      return valueFromStartSolLength;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionStartY", {
-  get: function() {
-    const { selectionStart, value } = this.target;
-    const valueUntilStart = value.substr(0, selectionStart);
-    const linesLengthUntilStart = valueUntilStart.split("\n").length;
+  Object.defineProperty(selectionChangeEvent, "selectionStartY", {
+    get: function() {
+      const { selectionStart, value } = this.target;
+      const valueUntilStart = value.substr(0, selectionStart);
+      const linesLengthUntilStart = valueUntilStart.split("\n").length;
 
-    return linesLengthUntilStart - 1;
-  }
-});
+      return linesLengthUntilStart - 1;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionEnd", {
-  get: function() {
-    return this.target.selectionEnd;
-  }
-});
+  Object.defineProperty(selectionChangeEvent, "selectionEnd", {
+    get: function() {
+      return this.target.selectionEnd;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionEndX", {
-  get: function() {
-    const { selectionEnd, value } = this.target;
-    const valueUntilEnd = value.substr(0, selectionEnd);
-    const maybeSolIndex = valueUntilEnd.lastIndexOf("\n");
-    const solIndex = maybeSolIndex !== -1 ? maybeSolIndex + 1 : 0;
-    const valueFromEndSol = valueUntilEnd.substr(solIndex);
-    const valueFromEndSolLength = valueFromEndSol.length;
+  Object.defineProperty(selectionChangeEvent, "selectionEndX", {
+    get: function() {
+      const { selectionEnd, value } = this.target;
+      const valueUntilEnd = value.substr(0, selectionEnd);
+      const maybeSolIndex = valueUntilEnd.lastIndexOf("\n");
+      const solIndex = maybeSolIndex !== -1 ? maybeSolIndex + 1 : 0;
+      const valueFromEndSol = valueUntilEnd.substr(solIndex);
+      const valueFromEndSolLength = valueFromEndSol.length;
 
-    return valueFromEndSolLength;
-  }
-});
+      return valueFromEndSolLength;
+    }
+  });
 
-Object.defineProperty(selectionChangeEvent, "selectionEndY", {
-  get: function() {
-    const { selectionEnd, value } = this.target;
-    const valueUntilEnd = value.substr(0, selectionEnd);
-    const linesLengthUntilEnd = valueUntilEnd.split("\n").length;
+  Object.defineProperty(selectionChangeEvent, "selectionEndY", {
+    get: function() {
+      const { selectionEnd, value } = this.target;
+      const valueUntilEnd = value.substr(0, selectionEnd);
+      const linesLengthUntilEnd = valueUntilEnd.split("\n").length;
 
-    return linesLengthUntilEnd - 1;
-  }
-});
+      return linesLengthUntilEnd - 1;
+    }
+  });
+
+  return selectionChangeEvent;
+}
 
 export default function addSelectionChangeEvent(element) {
+  const selectionChangeEvent = getSelectionChangeEvent();
+
   function triggerSelectionChangeEvent() {
     this.dispatchEvent(selectionChangeEvent);
   }

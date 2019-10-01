@@ -41,6 +41,9 @@ class Editor extends React.Component {
   componentDidMount() {
     const { onChange } = this.props;
 
+    addSelectionChangeEvent(this.$textarea);
+    this.$textarea.addEventListener("selectionChange", this.onSelectionChange.bind(this));
+
     // Trigger onChange() to load the first JSX into preview:
     onChange({
       ast: this.markdown.ast,
@@ -57,9 +60,7 @@ class Editor extends React.Component {
       return;
     }
 
-    addSelectionChangeEvent($textarea);
     this.$textarea = $textarea;
-    this.$textarea.addEventListener("selectionChange", this.onSelectionChange.bind(this));
   }
 
   _onSelectionChange(event) {
