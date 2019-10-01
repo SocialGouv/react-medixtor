@@ -8,13 +8,14 @@
 /scripts
 /src
 
+/.babelrc
 /.editorconfig
 /.eslintignore
 /.eslintrc.yml
 /.prettierrc
 /.travis.yml
 /index.html
-/jest.config.yml
+/jest.config.js
 /RELEASE_NOTES.md
 /rollup.config.js
 
