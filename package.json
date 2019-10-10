@@ -18,7 +18,7 @@
     "postversion": "git push --tags && git push origin HEAD"
   },
   "devDependencies": {
-    "@babel/core": "7.6.3",
+    "@babel/core": "7.6.4",
     "@babel/preset-env": "7.6.3",
     "@babel/preset-react": "7.6.3",
     "@mdx-js/mdx": "1.5.1",
