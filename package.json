@@ -44,7 +44,7 @@
     "remark-parse": "7.0.1",
     "remark-preset-lint-recommended": "3.0.3",
     "remark-react": "6.0.0",
-    "remixicon": "2.0.0",
+    "remixicon": "2.1.0",
     "rollup": "1.26.3",
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-commonjs": "10.1.0",
