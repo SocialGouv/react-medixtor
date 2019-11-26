@@ -33,7 +33,7 @@
     "debounce": "1.2.0",
     "eslint": "6.7.1",
     "jest": "24.9.0",
-    "keep-a-changelog": "0.8.1",
+    "keep-a-changelog": "0.8.2",
     "postcss-url": "8.0.0",
     "prettier": "1.19.1",
     "ramda": "0.26.1",
