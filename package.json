@@ -57,7 +57,7 @@
     "rollup-plugin-node-resolve": "5.2.0",
     "rollup-plugin-peer-deps-external": "2.2.0",
     "rollup-plugin-postcss": "2.0.3",
-    "rollup-plugin-serve": "1.0.1",
+    "rollup-plugin-serve": "1.0.2",
     "rollup-plugin-terser": "5.2.0",
     "rorre": "1.2.0",
     "unified": "8.4.2"
